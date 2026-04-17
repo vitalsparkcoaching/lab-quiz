@@ -90,8 +90,14 @@ body {
 .quiz-shell {
   width: 100%;
   max-width: 660px;
-  padding: 0 20px 72px;
+  padding: 0 16px 72px;
   margin: 0 auto;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+main {
+  width: 100%;
   box-sizing: border-box;
   min-width: 0;
 }
@@ -723,8 +729,8 @@ body {
 </svg>
 </header>
 
-<main>
-<div class="quiz-shell" id="app"></div>
+<main style="width:100%;max-width:660px;padding:0 16px 72px;box-sizing:border-box;margin:0 auto;">
+<div id="app"></div>
 </main>
 
 <script>
@@ -862,7 +868,7 @@ function render() {
 }
 
 function renderIntro() {
-  return `<div class="screen" style="padding-top: 36px;">
+  return `<div class="screen" style="padding-top: 36px;width:100%;box-sizing:border-box;">
     <div class="card intro-hero">
       <div class="mono-label">Free 2-Minute Quiz</div>
       <h1>Which functional lab test should you start with? — <em>The 2-Minute Quiz</em></h1>
@@ -919,7 +925,7 @@ function renderQuestion() {
 }
 
 function renderLoading() {
-  return `<div class="card screen" style="margin-top:36px;">
+  return `<div class="card screen" style="margin-top:36px;width:100%;box-sizing:border-box;">
     <div class="loading-card">
       <div class="spinner"></div>
       <p class="loading-label">Analyzing your answers…</p>
@@ -929,7 +935,7 @@ function renderLoading() {
 }
 
 function renderResult(r) {
-  return `<div class="card screen" style="margin-top:36px;">
+  return `<div class="card screen" style="margin-top:36px;width:100%;box-sizing:border-box;">
     <div class="result-header">
       <div class="result-type-badge">${r.badge}</div>
       <div class="result-lab-name">${r.labName}</div>
