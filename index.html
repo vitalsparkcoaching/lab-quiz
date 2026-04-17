@@ -148,6 +148,43 @@ body {
   margin: 0 auto 32px;
 }
 
+.symptom-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 0 auto 28px;
+  max-width: 480px;
+}
+
+.symptom-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--wine-10);
+  border: 1px solid var(--wine-20);
+  color: var(--wine);
+  font-family: 'BeVietnamPro', sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  padding: 7px 13px;
+  border-radius: 50px;
+}
+
+.symptom-chip-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--pink);
+  flex-shrink: 0;
+}
+
+.intro-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--cream-dark);
+  margin: 0 auto 22px;
+}
+
 .meta-row {
   display: flex;
   align-items: center;
@@ -698,42 +735,42 @@ const QUESTIONS = [
   },
   {
     id: 2,
-    text: "How would you describe your energy throughout the day?",
+    text: "Which of these sounds most like your energy right now? (Pick the one that hits hardest)",
     options: [
-      { letter: "A", text: "I crash hard after meals — especially lunch — and feel foggy and heavy" },
-      { letter: "B", text: "I'm wired at night but can't get going in the morning, like my hormones are inverted" },
-      { letter: "C", text: "Exhausted all day, no matter how much I sleep or how clean I eat" },
-      { letter: "D", text: "Unpredictable — some days okay, most days running on fumes" }
+      { letter: "A", text: "I crash hard after meals — foggy, heavy, and desperate for a nap by 2pm" },
+      { letter: "B", text: "Wired at night, can't get going in the morning — my whole rhythm feels off" },
+      { letter: "C", text: "Bone-deep exhausted all day, no matter how much I sleep or how clean I eat" },
+      { letter: "D", text: "Honestly, all three — my energy is all over the place and nothing makes sense anymore" }
     ]
   },
   {
     id: 3,
-    text: "Which feels most true about your relationship with food right now?",
+    text: "When you eat, how does your body usually respond?",
     options: [
-      { letter: "A", text: "I eat well but certain foods leave me bloated, inflamed, or uncomfortable" },
-      { letter: "B", text: "I crave sugar and carbs at specific times in my cycle or throughout the day" },
-      { letter: "C", text: "I eat clean but still feel inflamed, puffy, or like my immune system is on edge" },
-      { letter: "D", text: "I've done elimination diets and still can't figure out what's triggering me" }
+      { letter: "A", text: "Bloated, uncomfortable, or gassy — even after 'healthy' meals" },
+      { letter: "B", text: "Fine in the moment, but I crave sugar constantly and feel out of control around food" },
+      { letter: "C", text: "Okay most of the time, but I feel puffy, inflamed, and rundown overall" },
+      { letter: "D", text: "Unpredictably — I never know what's going to make me feel awful" }
     ]
   },
   {
     id: 4,
-    text: "Have you tried to address your symptoms before?",
+    text: "Have you ever had lab work done to investigate your symptoms?",
     options: [
-      { letter: "A", text: "Yes — gut protocols, probiotics, or low-FODMAP, with some help but no full resolution" },
-      { letter: "B", text: "Yes — hormone support like birth control, HRT, or adaptogens, with mixed results" },
-      { letter: "C", text: "Yes — supplements, thyroid meds, or immune support, but the root cause feels elusive" },
-      { letter: "D", text: "I've tried everything across the board. Nothing has actually gotten to the root" }
+      { letter: "A", text: "Just standard bloodwork — and my doctor said everything looked 'normal'" },
+      { letter: "B", text: "Some hormone testing, but I still don't have clear answers" },
+      { letter: "C", text: "I've tried supplements and different diets, but never actually tested anything" },
+      { letter: "D", text: "No testing at all — I don't even know where to start" }
     ]
   },
   {
     id: 5,
-    text: "If you could feel different in one way tomorrow, what would you choose?",
+    text: "If you could wake up feeling one thing tomorrow, what would it be?",
     options: [
-      { letter: "A", text: "A flat, comfortable belly that doesn't swell or ache throughout the day" },
-      { letter: "B", text: "Stable energy and a cycle that doesn't derail my entire month" },
-      { letter: "C", text: "A resilient immune system and real, steady energy that doesn't need caffeine" },
-      { letter: "D", text: "Feeling like myself again — clear, energized, and in control of my body" }
+      { letter: "A", text: "A stomach that's finally calm and flat — no bloating, no discomfort" },
+      { letter: "B", text: "Balanced hormones and a mood that isn't tied to my cycle" },
+      { letter: "C", text: "Real energy — the kind that doesn't require caffeine just to function" },
+      { letter: "D", text: "A body that responds again — losing weight without it feeling impossible" }
     ]
   }
 ];
@@ -744,8 +781,8 @@ const RESULTS = {
     badge: "Your gut is the root",
     labName: "Recommended starting lab: GI-MAP stool analysis",
     headline: "Your body isn't broken — your gut microbiome is <em>asking for attention</em>",
-    explanation: "The bloating, the food reactions, the post-meal crash — these aren't random. They're your gut sending distress signals that standard bloodwork almost always misses. Underneath your symptoms is likely a combination of gut dysbiosis (an imbalance of good and bad bacteria), possible pathogenic overgrowth, or compromised intestinal lining that's keeping your body in a constant low-grade inflammatory state. The GI-MAP is the most clinically precise stool analysis available, and it's the exact starting point we use with every single client at Vital Spark — because nothing else we do works as well until we know what's happening in there.",
-    action: "This week, start keeping a 3-day symptom journal. Write down what you eat, when you eat it, and exactly how you feel 30–60 minutes after each meal. Patterns will emerge fast. Then listen to the episodes below to understand exactly why your gut is ground zero — and why it's the starting point we trust above all else.",
+    explanation: "If you've been bloated, reactive to foods, or dealing with that uncomfortable post-meal heaviness — you're not imagining it, and you're definitely not being dramatic. What you're feeling is your gut trying to tell you something that a standard doctor's visit will almost never catch. Underneath those symptoms there's likely an imbalance in your gut bacteria, possible overgrowth of harmful microbes, or a compromised gut lining quietly driving inflammation throughout your entire body. The GI-MAP stool analysis is the test that can finally show you what's actually happening — not just rule things out, but give you a real picture of your gut environment so you know exactly what you're working with.",
+    action: "This week, start noticing patterns. Keep a simple 3-day log of what you eat and how you feel 30–60 minutes after — not to restrict anything, just to start listening to your body's signals. Then tune into the episodes below to understand why the gut is almost always where the answers live.",
     podcasts: [
       { title: "10 Reasons To Test Your Gut If You Want to Lose Weight", url: "https://podcasts.apple.com/us/podcast/vanessa-g-fitcast/id1552689596?i=1000717163280" },
       { title: "Ep. 253: Why You Need a GI-MAP", url: "https://podcasts.apple.com/us/podcast/ep-253-why-you-need-a-gi-map/id1552689596?i=1000740206255" }
@@ -754,10 +791,10 @@ const RESULTS = {
   hormone: {
     type: "hormone",
     badge: "Your hormones are downstream",
-    labName: "Recommended starting lab: GI-MAP stool analysis",
+    labName: "Recommended first step: GI-MAP → then DUTCH hormone test",
     headline: "Your hormones aren't the root cause — <em>your gut is driving the whole show</em>",
-    explanation: "Everything you're experiencing hormonally — the cycle disruption, the cravings, the wired-but-tired feeling — makes complete sense. But here's what most practitioners miss: 70% of estrogen metabolism happens in the gut. When the gut microbiome is dysbiotic, your body can't properly clear estrogen, cortisol struggles to regulate, and even your thyroid signal gets disrupted. Testing hormones directly with a DUTCH panel before addressing the gut is like treating smoke without finding the fire. The GI-MAP gives us the foundational picture we need before we can even know which hormonal levers to pull.",
-    action: "This week, remove one common gut disruptor — alcohol, artificial sweeteners, or your top inflammatory food. Just one. Notice within 5 days whether your hormonal symptoms shift at all. Then listen to the episodes below for a deeper look at the gut-hormone connection and why this test changes everything.",
+    explanation: "The most common mistake women in your situation make is going straight for hormone testing — and honestly, it makes total sense why. The symptoms point right at your hormones. But here's what that approach almost always misses: hormones don't go rogue on their own. They go rogue because something upstream is disrupting them. And that upstream source is almost always the gut. 70% of estrogen metabolism happens in your digestive system, which means when your gut bacteria are out of balance, your body literally cannot clear or regulate hormones properly — no matter how many adaptogens you take or how clean you eat. So your roadmap actually has two steps: first, the GI-MAP to see exactly what's happening in your gut. Once that picture is clear, then a DUTCH hormone test to map how your hormones are responding. That sequence is what turns 'I've tried everything' into 'I finally have answers.'",
+    action: "This week, try removing just one common gut disruptor — alcohol, artificial sweeteners, or your most inflammatory food. One thing. Notice over 5 days whether anything shifts. Then listen to the episodes below — they'll show you exactly why this order of operations changes everything.",
     podcasts: [
       { title: "10 Reasons To Test Your Gut If You Want to Lose Weight", url: "https://podcasts.apple.com/us/podcast/vanessa-g-fitcast/id1552689596?i=1000717163280" },
       { title: "Ep. 253: Why You Need a GI-MAP", url: "https://podcasts.apple.com/us/podcast/ep-253-why-you-need-a-gi-map/id1552689596?i=1000740206255" }
@@ -765,11 +802,11 @@ const RESULTS = {
   },
   immune: {
     type: "immune",
-    badge: "Your immune system is exhausted",
+    badge: "Your energy is running on empty",
     labName: "Recommended starting lab: GI-MAP stool analysis",
-    headline: "Your fatigue and immune struggles are <em>hidden signs of gut dysbiosis</em>",
-    explanation: "That persistent fatigue — the kind that doesn't resolve with sleep, clean eating, or rest — is one of the most under-recognized presentations of gut imbalance. Over 70% of your immune system literally lives in your gut. When the microbiome is disrupted, your immune system stays in chronic low-grade activation, burning through your energy reserves and making you more vulnerable to every stressor that comes your way. Most clients with your symptom picture have been told it's adrenal fatigue or thyroid dysfunction — and while those may be secondary factors, the origin is almost always the gut. The GI-MAP is where we start, every single time.",
-    action: "This week, prioritize one thing: sleep before midnight. Your gut's microbiome repair cycle is most active between 10pm and 2am, and cutting this window short is one of the most underestimated perpetuators of immune and fatigue symptoms. Then tune into the episodes below to understand exactly how gut dysfunction creates the exhaustion you've been living with.",
+    headline: "This isn't laziness or stress — <em>your body is carrying a hidden load</em>",
+    explanation: "When you're doing everything right — sleeping, eating clean, pushing through — and you're still exhausted, it stops feeling like a health problem and starts feeling like a personal failure. It isn't. That kind of deep, unrelenting fatigue that doesn't respond to rest is one of the most overlooked signs that something is off at the gut level. Over 70% of your immune system lives in your gut, and when the microbiome is disrupted, your body quietly burns through its energy reserves just trying to manage the internal inflammation. You may have been told it's stress, or burnout, or just part of being a busy woman. But your answers point to something more specific — and more addressable — than that. The GI-MAP can show you what's actually draining you.",
+    action: "This week, focus on one thing: getting to sleep before midnight. Your gut does its deepest repair work between 10pm and 2am, and that window matters more than most people realize. Then listen to the episodes below — they'll help connect the dots between what you're feeling and what's likely driving it.",
     podcasts: [
       { title: "10 Reasons To Test Your Gut If You Want to Lose Weight", url: "https://podcasts.apple.com/us/podcast/vanessa-g-fitcast/id1552689596?i=1000717163280" },
       { title: "Ep. 253: Why You Need a GI-MAP", url: "https://podcasts.apple.com/us/podcast/ep-253-why-you-need-a-gi-map/id1552689596?i=1000740206255" }
@@ -822,14 +859,24 @@ function renderIntro() {
   return `<div class="screen" style="padding-top: 36px;">
     <div class="card intro-hero">
       <div class="mono-label">Free 2-Minute Quiz</div>
-      <h1>Which functional lab test<br>should <em>you</em> start with?</h1>
-      <p class="intro-sub">You've tried the diets, the supplements, maybe even functional medicine. But if you're still not getting answers, it starts with knowing which test to run first. Let's find out.</p>
+      <h1>You eat well, you work out.<br>So why do you still feel <em>like this?</em></h1>
+      <p class="intro-sub">Bloating that won't quit. Hormones that feel completely off. Exhaustion no amount of sleep fixes. Weight that won't budge no matter what you do. If this sounds familiar — your body isn't broken. It's just asking for the right test.</p>
+      <div class="symptom-chips">
+        <span class="symptom-chip"><span class="symptom-chip-dot"></span>Bloating &amp; gut issues</span>
+        <span class="symptom-chip"><span class="symptom-chip-dot"></span>Hormone imbalances</span>
+        <span class="symptom-chip"><span class="symptom-chip-dot"></span>Unexplained weight gain</span>
+        <span class="symptom-chip"><span class="symptom-chip-dot"></span>Chronic fatigue</span>
+        <span class="symptom-chip"><span class="symptom-chip-dot"></span>Brain fog</span>
+        <span class="symptom-chip"><span class="symptom-chip-dot"></span>Getting sick often</span>
+      </div>
+      <div class="intro-divider"></div>
+      <p class="intro-sub" style="margin-bottom: 28px; font-size: 14px;">This quiz takes 2 minutes and tells you exactly which functional lab test to start with — so you can finally stop guessing and start getting real answers.</p>
       <div class="meta-row">
         <span class="meta-item">5 questions</span>
         <span class="meta-item">~2 minutes</span>
         <span class="meta-item">No email required</span>
       </div>
-      <button class="btn-primary" onclick="startQuiz()">Take the Quiz</button>
+      <button class="btn-primary" onclick="startQuiz()">Find My Starting Point</button>
     </div>
   </div>`;
 }
