@@ -727,9 +727,9 @@ const QUESTIONS = [
     id: 1,
     text: "When you think about your most persistent symptom, what comes to mind first?",
     options: [
-      { letter: "A", text: "Bloating, gas, irregular digestion, or stomach discomfort after meals" },
-      { letter: "B", text: "Hormonal chaos — irregular cycles, intense PMS, or perimenopausal symptoms" },
-      { letter: "C", text: "Bone-deep fatigue that sleep doesn't fix, and I get sick way too often" },
+      { letter: "A", text: "Bloating, gas, or stomach discomfort — especially after meals" },
+      { letter: "B", text: "Hormonal chaos — irregular cycles, intense PMS, or mood that feels out of my control" },
+      { letter: "C", text: "Exhaustion and a body that just won't respond, no matter what I do" },
       { letter: "D", text: "Honestly, all of the above — it's a full-body situation" }
     ]
   },
@@ -759,8 +759,8 @@ const QUESTIONS = [
     options: [
       { letter: "A", text: "Just standard bloodwork — and my doctor said everything looked 'normal'" },
       { letter: "B", text: "Some hormone testing, but I still don't have clear answers" },
-      { letter: "C", text: "I've tried supplements and different diets, but never actually tested anything" },
-      { letter: "D", text: "No testing at all — I don't even know where to start" }
+      { letter: "C", text: "I've tried supplements and different diets, but never actually had any testing done" },
+      { letter: "D", text: "Nothing at all — I don't even know where to begin" }
     ]
   },
   {
@@ -779,10 +779,10 @@ const RESULTS = {
   gut: {
     type: "gut",
     badge: "Your gut is the root",
-    labName: "Recommended starting lab: GI-MAP stool analysis",
+    labName: "Your recommended first step: GI-MAP stool analysis",
     headline: "Your body isn't broken — your gut microbiome is <em>asking for attention</em>",
-    explanation: "If you've been bloated, reactive to foods, or dealing with that uncomfortable post-meal heaviness — you're not imagining it, and you're definitely not being dramatic. What you're feeling is your gut trying to tell you something that a standard doctor's visit will almost never catch. Underneath those symptoms there's likely an imbalance in your gut bacteria, possible overgrowth of harmful microbes, or a compromised gut lining quietly driving inflammation throughout your entire body. The GI-MAP stool analysis is the test that can finally show you what's actually happening — not just rule things out, but give you a real picture of your gut environment so you know exactly what you're working with.",
-    action: "This week, start noticing patterns. Keep a simple 3-day log of what you eat and how you feel 30–60 minutes after — not to restrict anything, just to start listening to your body's signals. Then tune into the episodes below to understand why the gut is almost always where the answers live.",
+    explanation: "If you've been bloated, reactive to foods, or dealing with that uncomfortable post-meal heaviness — you're not imagining it, and you're definitely not being dramatic. What you're feeling is your gut trying to tell you something that a standard doctor's visit will almost never catch. Underneath those symptoms there's likely an imbalance in your gut bacteria, possible overgrowth of harmful microbes, or a compromised gut lining quietly driving inflammation throughout your entire body. The GI-MAP stool analysis is the test that can finally show you what's actually happening — not just rule things out, but give you a real, specific picture of your gut environment so you know exactly what you're working with and where to start.",
+    action: "This week, start noticing patterns. Keep a simple 3-day log of what you eat and how you feel 30–60 minutes after each meal — not to restrict anything, just to start listening to what your body is already trying to tell you. Then tune into the episodes below to understand why the gut is almost always where the real answers live.",
     podcasts: [
       { title: "10 Reasons To Test Your Gut If You Want to Lose Weight", url: "https://podcasts.apple.com/us/podcast/vanessa-g-fitcast/id1552689596?i=1000717163280" },
       { title: "Ep. 253: Why You Need a GI-MAP", url: "https://podcasts.apple.com/us/podcast/ep-253-why-you-need-a-gi-map/id1552689596?i=1000740206255" }
@@ -791,10 +791,10 @@ const RESULTS = {
   hormone: {
     type: "hormone",
     badge: "Your hormones are downstream",
-    labName: "Recommended first step: GI-MAP → then DUTCH hormone test",
+    labName: "Your recommended roadmap: GI-MAP first → then DUTCH hormone test",
     headline: "Your hormones aren't the root cause — <em>your gut is driving the whole show</em>",
-    explanation: "The most common mistake women in your situation make is going straight for hormone testing — and honestly, it makes total sense why. The symptoms point right at your hormones. But here's what that approach almost always misses: hormones don't go rogue on their own. They go rogue because something upstream is disrupting them. And that upstream source is almost always the gut. 70% of estrogen metabolism happens in your digestive system, which means when your gut bacteria are out of balance, your body literally cannot clear or regulate hormones properly — no matter how many adaptogens you take or how clean you eat. So your roadmap actually has two steps: first, the GI-MAP to see exactly what's happening in your gut. Once that picture is clear, then a DUTCH hormone test to map how your hormones are responding. That sequence is what turns 'I've tried everything' into 'I finally have answers.'",
-    action: "This week, try removing just one common gut disruptor — alcohol, artificial sweeteners, or your most inflammatory food. One thing. Notice over 5 days whether anything shifts. Then listen to the episodes below — they'll show you exactly why this order of operations changes everything.",
+    explanation: "The most common mistake women in your situation make is going straight for hormone testing — and honestly, it makes complete sense why. The symptoms point right at your hormones. But here's what that approach almost always misses: hormones don't go rogue on their own. They go rogue because something upstream is disrupting them, and that upstream source is almost always the gut. 70% of estrogen metabolism happens in your digestive system, which means when your gut bacteria are out of balance, your body literally cannot clear or regulate hormones properly — no matter how many adaptogens you take or how clean you eat. So your roadmap has two steps: first, the GI-MAP to see exactly what's happening in your gut. Once that picture is clear, then the DUTCH hormone test to map how your hormones are responding. That sequence is what turns 'I've tried everything' into 'I finally have real answers.'",
+    action: "This week, try removing just one common gut disruptor — alcohol, artificial sweeteners, or your most inflammatory food. Just one thing. Notice over 5 days whether anything shifts. Then listen to the episodes below — they'll show you exactly why this order of operations is the thing most women in your position have never been told.",
     podcasts: [
       { title: "10 Reasons To Test Your Gut If You Want to Lose Weight", url: "https://podcasts.apple.com/us/podcast/vanessa-g-fitcast/id1552689596?i=1000717163280" },
       { title: "Ep. 253: Why You Need a GI-MAP", url: "https://podcasts.apple.com/us/podcast/ep-253-why-you-need-a-gi-map/id1552689596?i=1000740206255" }
@@ -803,10 +803,10 @@ const RESULTS = {
   immune: {
     type: "immune",
     badge: "Your energy is running on empty",
-    labName: "Recommended starting lab: GI-MAP stool analysis",
+    labName: "Your recommended first step: GI-MAP stool analysis",
     headline: "This isn't laziness or stress — <em>your body is carrying a hidden load</em>",
-    explanation: "When you're doing everything right — sleeping, eating clean, pushing through — and you're still exhausted, it stops feeling like a health problem and starts feeling like a personal failure. It isn't. That kind of deep, unrelenting fatigue that doesn't respond to rest is one of the most overlooked signs that something is off at the gut level. Over 70% of your immune system lives in your gut, and when the microbiome is disrupted, your body quietly burns through its energy reserves just trying to manage the internal inflammation. You may have been told it's stress, or burnout, or just part of being a busy woman. But your answers point to something more specific — and more addressable — than that. The GI-MAP can show you what's actually draining you.",
-    action: "This week, focus on one thing: getting to sleep before midnight. Your gut does its deepest repair work between 10pm and 2am, and that window matters more than most people realize. Then listen to the episodes below — they'll help connect the dots between what you're feeling and what's likely driving it.",
+    explanation: "When you're doing everything right — sleeping, eating clean, pushing through — and you're still exhausted, it stops feeling like a health problem and starts feeling like a personal failure. It isn't. That kind of deep, unrelenting fatigue that doesn't respond to rest is one of the most overlooked signs that something is off at the gut level. Over 70% of your immune system lives in your gut, and when the microbiome is disrupted, your body quietly burns through its energy reserves just trying to manage the internal inflammation. You may have been told it's stress, or burnout, or just part of being a busy woman. But your answers point to something more specific — and far more addressable — than that. The GI-MAP can show you what's actually been draining you, often for years.",
+    action: "This week, focus on one thing: getting to sleep before midnight. Your gut does its deepest repair work between 10pm and 2am, and that window matters more than most people realize. Then listen to the episodes below — they'll help connect the dots between what you're feeling and what's very likely driving it.",
     podcasts: [
       { title: "10 Reasons To Test Your Gut If You Want to Lose Weight", url: "https://podcasts.apple.com/us/podcast/vanessa-g-fitcast/id1552689596?i=1000717163280" },
       { title: "Ep. 253: Why You Need a GI-MAP", url: "https://podcasts.apple.com/us/podcast/ep-253-why-you-need-a-gi-map/id1552689596?i=1000740206255" }
@@ -933,7 +933,7 @@ function renderResult(r) {
       <h2 class="result-headline">${r.headline}</h2>
     </div>
     <div class="result-body">
-      <div class="section-label">What's actually going on</div>
+      <div class="section-label">Here's what's likely going on</div>
       <p class="result-explanation">${r.explanation}</p>
       <div class="result-divider"></div>
       <div class="action-box">
@@ -955,8 +955,8 @@ function renderResult(r) {
       </div>
     </div>
     <div class="cta-section">
-      <h3 class="cta-headline">Ready to stop guessing?</h3>
-      <p class="cta-pre">Let's map out your personalized functional health plan and get you the answers your body has been waiting for.</p>
+      <h3 class="cta-headline">Want to know exactly what your body needs?</h3>
+      <p class="cta-pre">Book a free consultation call and we'll walk through your symptoms together, explain what testing would look like for you specifically, and map out a clear path forward.</p>
       <a href="https://vitalsparkcoaching.com/info" target="_blank" class="btn-cta">Book Your Free Functional Health Consultation Call</a>
       <p class="cta-fine">No commitment &nbsp;·&nbsp; No pushy sales &nbsp;·&nbsp; Just clarity</p>
       <br>
