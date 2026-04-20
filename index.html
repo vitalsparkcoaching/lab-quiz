@@ -606,6 +606,110 @@ main {
   text-align: center;
 }
 
+/* WHAT WE DO SECTION */
+.vitalspark-section {
+  background: var(--deep-wine);
+  padding: 32px 36px 36px;
+}
+
+.vitalspark-section-label {
+  font-family: 'SometypeMono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 14px;
+}
+
+.vitalspark-headline {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--cream);
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.vitalspark-subtext {
+  font-size: 14px;
+  color: rgba(241,228,212,0.75);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.step-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(195,143,143,0.25);
+  border: 1px solid rgba(195,143,143,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'SometypeMono', monospace;
+  font-size: 11px;
+  color: var(--pink);
+  margin-top: 1px;
+}
+
+.step-text {
+  font-size: 14px;
+  color: rgba(241,228,212,0.85);
+  line-height: 1.6;
+}
+
+.step-text strong {
+  color: var(--cream);
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+}
+
+.btn-cta-dark {
+  display: block;
+  background: var(--cream);
+  color: var(--deep-wine);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 18px 36px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.2s;
+  max-width: 420px;
+  margin: 0 auto 10px;
+  line-height: 1.3;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.btn-cta-dark:hover { background: var(--cream-dark); transform: translateY(-1px); }
+
+.cta-fine-light {
+  font-family: 'SometypeMono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: rgba(241,228,212,0.45);
+  text-align: center;
+}
+
 .cta-headline {
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -693,6 +797,9 @@ main {
   .result-body { padding: 26px 22px 28px; }
   .cta-section { padding: 26px 22px 30px; }
   .btn-cta { font-size: 12px; padding: 16px 24px; }
+  .btn-cta-dark { font-size: 12px; padding: 16px 24px; }
+  .vitalspark-section { padding: 28px 22px 32px; }
+  .vitalspark-headline { font-size: 16px; }
   .meta-row { gap: 8px; }
   .meta-item { padding: 0 10px; font-size: 10px; }
 }
@@ -975,13 +1082,39 @@ function renderResult(r) {
         `).join('')}
       </div>
     </div>
+
+    <div class="vitalspark-section">
+      <div class="vitalspark-section-label">How Vital Spark Coaching works</div>
+      <h3 class="vitalspark-headline">We don't guess. We test, interpret, and build your plan around the data.</h3>
+      <p class="vitalspark-subtext">Most women spend years cycling through diets, doctors, and supplements without ever getting a clear picture of what's actually wrong. At Vital Spark, we order your labs, walk you through every result, and build a protocol specific to what your body actually needs — not a generic program.</p>
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-text"><strong>Free consultation call</strong> — We review your symptoms, explain exactly which labs make sense for you, and answer every question you have.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-text"><strong>We order your labs</strong> — No referral needed, no waiting rooms. We handle the GI-MAP (and any additional testing) directly through our practitioner network.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-text"><strong>Full results review</strong> — We interpret everything with you in plain language, so you actually understand what you're looking at.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">4</div>
+          <div class="step-text"><strong>Your personalized protocol</strong> — Diet, supplements, lifestyle changes, and next-step testing — built around your specific results, not a template.</div>
+        </div>
+      </div>
+      <a href="https://vitalsparkcoaching.com/info-quiz" target="_blank" class="btn-cta-dark">Book Your Free Consultation Call →</a>
+      <p class="cta-fine-light">Free · No commitment · No pushy sales</p>
+    </div>
+
     <div class="cta-section">
-      <h3 class="cta-headline">Want to know exactly what your body needs?</h3>
-      <p class="cta-pre">Book a free consultation call and we'll walk through your symptoms together, explain what testing would look like for you specifically, and map out a clear path forward.</p>
-      <a href="https://vitalsparkcoaching.com/info-quiz" target="_blank" class="btn-cta">Book Your Free Functional Health Consultation Call</a>
-      <p class="cta-fine">No commitment &nbsp;·&nbsp; No pushy sales &nbsp;·&nbsp; Just clarity</p>
+      <p style="font-family:'SometypeMono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;">Still have questions?</p>
+      <p style="font-size:14px;color:var(--text-mid);line-height:1.65;margin-bottom:20px;max-width:400px;margin-left:auto;margin-right:auto;">Not sure if Vital Spark is the right fit? The consultation call is completely free — it's just a conversation. You'll leave with clarity whether you work with us or not.</p>
+      <a href="https://vitalsparkcoaching.com/info-quiz" target="_blank" class="btn-cta">Book Your Free Consultation Call</a>
       <br>
-      <button class="retake-btn" id="retake-btn">&larr; Retake the quiz</button>
+      <button class="retake-btn" id="retake-btn">← Retake the quiz</button>
     </div>
   </div>`;
 }
