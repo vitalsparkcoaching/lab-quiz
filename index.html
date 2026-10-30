@@ -780,6 +780,33 @@ main {
   .meta-row { gap: 8px; }
   .meta-item { padding: 0 10px; font-size: 10px; }
 }
+
+  /* 5-track result additions */
+  .result-track-badge {
+    font-family: 'SometypeMono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pink);
+    background: rgba(195,143,143,0.12);
+    border: 1px solid rgba(195,143,143,0.25);
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .result-sequence {
+    font-family: 'SometypeMono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    margin-bottom: 4px;
+    letter-spacing: 0.04em;
+  }
+  .result-sequence strong {
+    color: var(--wine);
+  }
+
 </style>
 </head>
 <body>
@@ -837,18 +864,18 @@ const QUESTIONS = [
     options: [
       { letter: "A", text: "Bloating, gas, or stomach discomfort — especially after meals" },
       { letter: "B", text: "Hormonal chaos — irregular cycles, intense PMS, or mood that feels out of my control" },
-      { letter: "C", text: "Exhaustion and a body that just won't respond, no matter what I do" },
+      { letter: "C", text: "Stubborn weight or body composition — I'm doing the work and my body just isn't responding" },
       { letter: "D", text: "Honestly, all of the above — it's a full-body situation" }
     ]
   },
   {
     id: 2,
-    text: "Which of these sounds most like your energy right now? (Pick the one that hits hardest)",
+    text: "When you've tried to feel better, what have you already done?",
     options: [
-      { letter: "A", text: "I crash hard after meals — foggy, heavy, and desperate for a nap by 2pm" },
-      { letter: "B", text: "Wired at night, can't get going in the morning — my whole rhythm feels off" },
-      { letter: "C", text: "Bone-deep exhausted all day, no matter how much I sleep or how clean I eat" },
-      { letter: "D", text: "Honestly, all three — my energy is all over the place and nothing makes sense anymore" }
+      { letter: "A", text: "Cut out foods (gluten, dairy, sugar, etc.) — and I still don't feel good" },
+      { letter: "B", text: "Got hormone or thyroid testing done — and was told everything looks normal" },
+      { letter: "C", text: "Tried supplements, clean eating, or gut protocols — with mixed results" },
+      { letter: "D", text: "Honestly, I haven't done much yet — I don't know where to start" }
     ]
   },
   {
@@ -863,12 +890,12 @@ const QUESTIONS = [
   },
   {
     id: 4,
-    text: "Have you ever had lab work done to investigate your symptoms?",
+    text: "Which of these situations fits you best right now?",
     options: [
-      { letter: "A", text: "Just standard bloodwork — and my doctor said everything looked 'normal'" },
-      { letter: "B", text: "Some hormone testing, but I still don't have clear answers" },
-      { letter: "C", text: "I've tried supplements and different diets, but never actually had any testing done" },
-      { letter: "D", text: "Nothing at all — I don't even know where to begin" }
+      { letter: "A", text: "I'm postpartum or currently breastfeeding" },
+      { letter: "B", text: "I've cut out foods, tried elimination diets, and still feel awful — nothing seems to help" },
+      { letter: "C", text: "I'm active and health-focused, but I can't seem to change my body composition no matter what I do" },
+      { letter: "D", text: "None of these — I'm just trying to figure out what's wrong" }
     ]
   },
   {
@@ -883,47 +910,128 @@ const QUESTIONS = [
   }
 ];
 
+// Track routing logic:
+// Track 1: Gut Reset — GI-MAP alone
+// Track 2: Hormone + Gut — GI-MAP first → DUTCH second
+// Track 3: Postpartum — GI-MAP + HTMA together → DUTCH after weaning
+// Track 4: Root Cause Reset — GI-MAP + MRT (extreme reactivity/sensitivities)
+// Track 5: Optimize — GI-MAP + DOXA (performance/optimization)
+
 const RESULTS = {
   gut: {
     type: "gut",
-    resultLabel: "Your result",
-    resultName: "GI-MAP",
-    q5Payoff: "A calm, flat stomach starts in your gut — and a GI-MAP is the only test that shows you exactly what's disrupting it.",
-    insight: "Bloating, food reactions, and digestive discomfort aren't random — they're your gut microbiome out of balance. Standard bloodwork misses this completely. The GI-MAP maps your gut bacteria, identifies pathogens or overgrowth, and flags damage to your gut lining. It turns guesswork into a clear, specific starting point.",
+    trackName: "Gut Reset",
+    trackBadge: "Track 1",
+    resultLabel: "Your starting point",
+    primaryTest: "GI-MAP",
+    sequence: "GI-MAP",
+    q5Payoff: "A calm, flat stomach and a body that doesn't fight every meal — the GI-MAP shows you exactly what's disrupting it.",
+    insight: "Bloating, food reactions, and digestive discomfort aren't random — they're your gut microbiome out of balance. Standard bloodwork misses this completely. The GI-MAP maps your gut bacteria, identifies pathogens or overgrowth, checks your gut lining, and flags why inflammation keeps coming back. It turns guesswork into a clear, specific starting point so you're not throwing supplements at a symptom.",
     podcast: { title: "Ep. 253: Why You Need a GI-MAP", url: "https://podcasts.apple.com/us/podcast/ep-253-why-you-need-a-gi-map/id1552689596?i=1000740206255" },
-    nextStep: "This is the exact lab we run for every client inside our Functional Health Reset who is doing everything right and still stuck. We order it for you, interpret every marker, and build your protocol around what we find — so you're not left staring at a report that means nothing to you."
+    nextStep: "We order the GI-MAP for you directly through our practitioner network — no referral, no waiting room. We interpret every marker with you in plain language, then build your gut reset protocol around exactly what we find. You're not left staring at a report that means nothing to you.",
+    howItWorksSteps: [
+      { title: "Free consultation call", text: "We review your symptoms and confirm the GI-MAP is the right first test for you." },
+      { title: "We order your GI-MAP", text: "At-home stool test, ordered directly through our practitioner. No referral needed." },
+      { title: "Full results review", text: "We walk through every marker with you — bacteria, inflammation, gut lining, and more — in plain language." },
+      { title: "Your gut reset protocol", text: "Built around your specific results. Targeted supplements, food support, and a clear sequence for healing." }
+    ]
   },
   hormone: {
     type: "hormone",
-    resultLabel: "Your result",
-    resultName: "GI-MAP",
-    q5Payoff: "Balanced hormones and a mood you can rely on — but here's the thing: that starts in your gut, not a hormone panel.",
-    insight: "The most common mistake women with hormone symptoms make is going straight for hormone testing. But hormones don't go off-track on their own — something upstream disrupts them, and that upstream source is almost always the gut. 70% of estrogen metabolism happens in your digestive system. Fix the gut first. Then the hormones follow. The GI-MAP is step one.",
+    trackName: "Hormone + Gut",
+    trackBadge: "Track 2",
+    resultLabel: "Your starting point",
+    primaryTest: "GI-MAP + DUTCH",
+    sequence: "GI-MAP + DUTCH together",
+    q5Payoff: "Balanced hormones and a mood you can rely on — starting with the place most women never think to look.",
+    insight: "The most common mistake women with hormone symptoms make is going straight for hormone testing alone. And here's why that misses the picture: your gut is where hormones go to be processed and cleared. Estrogen in particular is filtered through your digestive system — and a GI-MAP marker called beta-glucuronidase shows exactly whether your gut is clearing old estrogen properly or recycling it back into your body, which drives the very symptoms you're trying to fix. We run the GI-MAP and the DUTCH hormone test together so we can see both sides of the equation at once — what's happening in your gut and what's happening with your full hormone cascade, including production, metabolism, and clearance pathways. One complete picture instead of a partial answer. Most women are surprised to find out how much their hormone symptoms are rooted in gut dysfunction — and how quickly things shift when both are addressed at the same time.",
     podcast: { title: "Ep. 253: Why You Need a GI-MAP", url: "https://podcasts.apple.com/us/podcast/ep-253-why-you-need-a-gi-map/id1552689596?i=1000740206255" },
-    nextStep: "This is the exact lab we run for every client inside our Functional Health Reset who is doing everything right and still stuck. We order it for you, interpret every marker, and build your protocol around what we find — so you finally know what your hormones have been trying to tell you."
+    nextStep: "We order the GI-MAP and DUTCH together — both through our practitioner network, both interpreted by us in one results review. You're not bounced between appointments or left waiting to start phase two. You get the full picture at once, and your protocol addresses your gut and your hormones as the connected system they actually are.",
+    howItWorksSteps: [
+      { title: "Free consultation call", text: "We review your full symptom picture and confirm the GI-MAP + DUTCH combination is the right starting point for you." },
+      { title: "GI-MAP + DUTCH together", text: "Both tests ordered through our practitioner network at the same time — at-home stool test and dried urine hormone panel. No waiting between phases." },
+      { title: "One integrated results review", text: "We walk through both sets of results together — your gut markers and your full hormone picture — so you can see exactly how they connect." },
+      { title: "Your protocol", text: "Gut and hormone support addressed together from day one. Targeted supplements, nutrition, and lifestyle built around what your specific results show." }
+    ]
   },
-  immune: {
-    type: "immune",
-    resultLabel: "Your result",
-    resultName: "GI-MAP",
-    q5Payoff: "Real, consistent energy — the kind that doesn't crash by noon or need caffeine to exist. The GI-MAP shows you what's silently draining it.",
-    insight: "When you're exhausted despite doing everything right, it's not burnout — it's your gut. Over 70% of your immune system lives there, and when the microbiome is disrupted, your body burns through energy reserves just managing internal inflammation. You may have been told it's stress or adrenal fatigue. Your answers point to something more specific. The GI-MAP finds it.",
+  postpartum: {
+    type: "postpartum",
+    trackName: "Postpartum Reset",
+    trackBadge: "Track 3",
+    resultLabel: "Your starting point",
+    primaryTest: "GI-MAP + HTMA",
+    sequence: "GI-MAP + HTMA together → DUTCH after weaning",
+    q5Payoff: "Feeling like yourself again — with real energy, a body that responds, and hormones that finally make sense.",
+    insight: "The postpartum body is doing something entirely different from any other hormonal phase in a woman's life. Pregnancy and breastfeeding deplete minerals at a rate that most women never recover from without targeted support — and that mineral depletion quietly drives the fatigue, the mood swings, the weight that won't budge, and the thyroid and adrenal dysfunction that gets chalked up to 'just being a new mom.' We run the GI-MAP alongside the HTMA hair mineral test — together they give us your gut health and your mineral status at the same time. Then, once you're done breastfeeding (or if you're not nursing), we add the DUTCH hormone test to complete the picture.",
     podcast: { title: "Ep. 253: Why You Need a GI-MAP", url: "https://podcasts.apple.com/us/podcast/ep-253-why-you-need-a-gi-map/id1552689596?i=1000740206255" },
-    nextStep: "This is the exact lab we run for every client inside our Functional Health Reset who is doing everything right and still stuck. We order it for you, interpret every marker, and build your protocol around what we find — so you stop managing symptoms and start fixing the source."
+    nextStep: "We run the GI-MAP and HTMA simultaneously — both ordered and interpreted by us, with a protocol that addresses your gut and mineral status together. If you're still breastfeeding, we hold the DUTCH until you're done. If you're not nursing, we can discuss adding it to the plan now. Either way, you're not starting over — you're getting the full picture your body needs.",
+    howItWorksSteps: [
+      { title: "Free consultation call", text: "We talk through your postpartum timeline, breastfeeding status, and symptoms to confirm your testing plan." },
+      { title: "GI-MAP + HTMA together", text: "At-home stool test and hair mineral test — both ordered by us. Gut health and mineral status assessed at the same time." },
+      { title: "Results review and protocol", text: "We walk through both sets of results with you and build your postpartum reset protocol around what we find." },
+      { title: "DUTCH after weaning", text: "Once breastfeeding wraps up, we layer in the DUTCH hormone test to complete your hormone picture and fine-tune your protocol." }
+    ]
+  },
+  sensitivity: {
+    type: "sensitivity",
+    trackName: "Root Cause Reset",
+    trackBadge: "Track 4",
+    resultLabel: "Your starting point",
+    primaryTest: "GI-MAP + MRT",
+    sequence: "GI-MAP + MRT together",
+    q5Payoff: "Eating without fear — finally knowing which foods are safe for YOUR body and why.",
+    insight: "When you've cut out gluten, dairy, eggs, or whatever the internet suggested this week — and you still feel awful — the problem isn't your discipline. It's that elimination guessing doesn't test anything, and it doesn't fix anything. It just adds more restriction. Here's how we actually approach this: the MRT (Mediator Release Test) measures your inflammatory immune response to 170 foods and food chemicals, giving you a color-coded map of what's safe to eat right now — so you can calm the inflammation immediately and stop living in fear of food. But symptom management isn't the goal. Healing is. That's where the GI-MAP comes in. Widespread food reactivity almost always has a root cause in the gut — damaged gut lining, bacterial imbalance, or pathogens that keep your immune system in a constant state of alert. The GI-MAP identifies exactly what's driving that reaction at the source. When we fix the gut, the food picture changes. Foods that once made you feel terrible often become tolerable again — not because you're managing around the problem, but because the problem is actually resolved.",
+    podcast: { title: "Ep. 253: Why You Need a GI-MAP", url: "https://podcasts.apple.com/us/podcast/ep-253-why-you-need-a-gi-map/id1552689596?i=1000740206255" },
+    nextStep: "We run the GI-MAP and MRT at the same time — both ordered through our practitioner network, both interpreted by us. The MRT gives you a safe eating map immediately so you can start feeling better while we do the deeper work. The GI-MAP tells us what's driving the reactivity at the root so we can actually fix it. The goal isn't a shorter list of foods you can tolerate. It's getting back to eating the foods you love — for good.",
+    howItWorksSteps: [
+      { title: "Free consultation call", text: "We review your food history, elimination attempts, and symptoms to confirm this is the right track for you." },
+      { title: "GI-MAP + MRT simultaneously", text: "Stool test and blood test — ordered by us, run at the same time. Gut health and your 170-food reactivity map." },
+      { title: "LEAP eating plan", text: "Immediately after MRT results, you get a phased eating plan built around your safest foods. No more guessing what to eat." },
+      { title: "Gut root cause protocol", text: "GI-MAP results guide your gut healing protocol — addressing what's driving the reactivity, not just managing around it." }
+    ]
+  },
+  optimize: {
+    type: "optimize",
+    trackName: "Body Composition Reset",
+    trackBadge: "Track 5",
+    resultLabel: "Your starting point",
+    primaryTest: "GI-MAP + DOXA",
+    sequence: "GI-MAP + DOXA together",
+    q5Payoff: "A body that finally responds — because you're working with your biology instead of against it.",
+    insight: "When you're eating well, moving your body, and doing everything right — and the scale still won't budge — the answer isn't more restriction. It's root cause. Weight loss resistance almost always starts in two places: the gut and your individual genetic blueprint. Gut dysfunction drives chronic inflammation, disrupts hormone signaling, and blocks your body's ability to burn fat effectively — even when your diet looks clean on paper. The DOXA genetic panel (the Cellular Restore Panel) shows us how your specific genes handle inflammation, hormone metabolism, blood sugar, and detox pathways — answering 'why doesn't what works for everyone else work for me?' Together, the GI-MAP and DOXA give us a complete picture of what's holding your body composition hostage — so your protocol is built around your actual biology, not a generic plan.",
+    podcast: { title: "Ep. 253: Why You Need a GI-MAP", url: "https://podcasts.apple.com/us/podcast/ep-253-why-you-need-a-gi-map/id1552689596?i=1000740206255" },
+    nextStep: "We run the GI-MAP and DOXA together — both ordered through our network, interpreted by us, with a protocol built around what we find. The DOXA is a one-time test (your genes don't change), so it becomes the foundation every future protocol is built on. The GI-MAP tells us what's actively driving the resistance right now. Together, they replace guessing with a clear plan.",
+    howItWorksSteps: [
+      { title: "Free consultation call", text: "We talk through your body composition goals, what you've already tried, and confirm the GI-MAP + DOXA combination is right for you." },
+      { title: "GI-MAP + DOXA simultaneously", text: "At-home stool test and saliva genetic panel — ordered by us, run at the same time. Gut inflammation and your genetic blueprint, assessed together." },
+      { title: "Results review", text: "We walk through both sets of results with you — where inflammation is coming from, how your genes are affecting your metabolism, and what's been holding your body back." },
+      { title: "Your body composition protocol", text: "Targeted nutrition, supplement, and lifestyle recommendations built around your actual results — not a generic fat-loss plan. Your gut, your genes, your protocol." }
+    ]
   }
 };
 
 function getResult(answers) {
-  const counts = { gut: 0, hormone: 0, immune: 0 };
-  answers.forEach(a => {
+  // Q4 routing: 0=postpartum, 1=sensitivity, 2=optimize, 3=general
+  if (answers[3] === 0) return 'postpartum';
+  if (answers[3] === 1) return 'sensitivity';
+  if (answers[3] === 2) return 'optimize';
+
+  // Q2 strong signals: A=sensitivity (cut out foods), B=hormone (told "normal")
+  if (answers[1] === 0) return 'sensitivity'; // cut out foods, still feel bad → MRT
+  if (answers[1] === 1) return 'hormone';     // hormone/thyroid testing, "looks normal" → Hormone+Gut
+
+  // General routing based on Q1, Q3, Q5
+  // Q1-C = optimize signal (body composition)
+  if (answers[0] === 2) return 'optimize';
+
+  const counts = { gut: 0, hormone: 0 };
+  [answers[0], answers[2], answers[4]].forEach(a => {
     if (a === 0) counts.gut++;
     else if (a === 1) counts.hormone++;
-    else if (a === 2) counts.immune++;
-    else { counts.gut++; counts.hormone++; counts.immune++; }
+    else { counts.gut++; counts.hormone++; }
   });
-  if (counts.gut >= counts.hormone && counts.gut >= counts.immune) return 'gut';
-  if (counts.hormone > counts.gut && counts.hormone >= counts.immune) return 'hormone';
-  return 'immune';
+  if (counts.hormone > counts.gut) return 'hormone';
+  return 'gut';
 }
 
 let screen = 'intro';
@@ -1022,16 +1130,25 @@ function renderLoading() {
 }
 
 function renderResult(r) {
+  const steps = r.howItWorksSteps.map((s, i) => `
+    <div class="step-item">
+      <div class="step-number">${i + 1}</div>
+      <div class="step-text"><strong>${s.title}</strong> — ${s.text}</div>
+    </div>
+  `).join('');
+
   return `<div class="card screen" style="margin-top:36px;width:100%;box-sizing:border-box;">
 
     <div class="result-header">
+      <div class="result-track-badge">${r.trackBadge} · ${r.trackName}</div>
       <div class="result-label-small">${r.resultLabel}</div>
-      <div class="result-name-large">${r.resultName}</div>
+      <div class="result-name-large">${r.primaryTest}</div>
+      ${r.sequence !== r.primaryTest ? `<div class="result-sequence">Recommended sequence: <strong>${r.sequence}</strong></div>` : ''}
       <p class="result-q5-payoff">${r.q5Payoff}</p>
     </div>
 
     <div class="result-body">
-      <div class="section-label">Why the GI-MAP</div>
+      <div class="section-label">Why this combination</div>
       <p class="result-explanation">${r.insight}</p>
 
       <div class="section-label">Learn more</div>
@@ -1056,22 +1173,7 @@ function renderResult(r) {
       <div class="vitalspark-section-label">How it works</div>
       <h3 class="vitalspark-headline">We order the labs, interpret everything, and build your protocol — done with you, not handed off to you.</h3>
       <div class="steps-list">
-        <div class="step-item">
-          <div class="step-number">1</div>
-          <div class="step-text"><strong>Free consultation call</strong> — We review your symptoms and confirm which labs are right for you.</div>
-        </div>
-        <div class="step-item">
-          <div class="step-number">2</div>
-          <div class="step-text"><strong>We order your GI-MAP</strong> — No referral, no waiting room. Ordered directly through our practitioner network.</div>
-        </div>
-        <div class="step-item">
-          <div class="step-number">3</div>
-          <div class="step-text"><strong>Full results review</strong> — We walk through every marker with you in plain language.</div>
-        </div>
-        <div class="step-item">
-          <div class="step-number">4</div>
-          <div class="step-text"><strong>Your personalized protocol</strong> — Built around your results. Not a template.</div>
-        </div>
+        ${steps}
       </div>
       <a href="https://vitalsparkcoaching.com/info-quiz" target="_blank" class="btn-cta-dark">Book Your Free Consultation Call →</a>
       <p class="cta-fine-light" style="margin-top:12px;">Free &nbsp;·&nbsp; No commitment &nbsp;·&nbsp; No pushy sales</p>
